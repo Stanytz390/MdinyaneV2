@@ -1,16 +1,17 @@
 /*****************************************************************************
  *                                                                           *
- *                     Developed By StanyTz                                  *
+ *                     Developed By STANY TZ                                 *
  *                                                                           *
- *  🌐  GitHub   : https://github.com/Stanytz390                             *
- *  ▶️  YouTube  : https://youtube.com/@Stanytz_tricks                      *
- *  💬  WhatsApp : https://whatsapp.com/channel/0029Vb7fzu4EwEjmsD4Tzs1p    *
+ *  🌐  GitHub   : https://github.com/Stanytz378/iamlegendv2                 *
+ *  ▶️  YouTube  : https://youtube.com/@STANYTZ                              *
+ *  💬  WhatsApp : https://whatsapp.com/channel/0029Vb7fzu4EwEjmsD4Tzs1p     *
  *                                                                           *
- *    © 2026 GlobalTechInfo. All rights reserved.                            *
+ *    © 2026 STANY TZ. All rights reserved.                                 *
  *                                                                           *
- *    Description: Main bot entry – handles session download and startup     *
+ *    Description: Main entry point – loads session, starts WhatsApp socket  *
+ *                 and handles all events.                                  *
  *                                                                           *
- *****************************************************************************/
+ ***************************************************************************/
 
 import 'dotenv/config';
 import fs, { existsSync, mkdirSync, rmSync } from 'fs';
@@ -21,6 +22,7 @@ import { parsePhoneNumber as PhoneNumber } from 'awesome-phonenumber';
 import readline from 'readline';
 import QRCode from 'qrcode';
 import { fileURLToPath } from 'url';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -40,7 +42,7 @@ import NodeCache from 'node-cache';
 import pino from 'pino';
 import config from './config.js';
 import store from './lib/lightweight_store.js';
-import SaveCreds from './lib/session.js';        // your updated SaveCreds (only stany~bots_)
+import SaveCreds from './lib/session.js';
 import { server, PORT } from './lib/server.js';
 import { printLog } from './lib/print.js';
 import { writeErrorLog } from './lib/logger.js';
@@ -164,7 +166,7 @@ function hasValidSession() {
       rmSync(path.join(__dirname, 'session'), { recursive: true, force: true });
       return false;
     }
-    printLog('success', 'Valid session credentials found');
+    printLog('success', '✅ Valid session credentials found');
     return true;
   } catch (error) {
     printLog('error', `Error validating session: ${error.message}`);
@@ -183,7 +185,7 @@ async function downloadSessionCredentials(sessionId) {
     await delay(2000);
     // Verify after download
     if (hasValidSession()) {
-      printLog('success', 'Session downloaded and verified');
+      printLog('success', '✅ Session downloaded and verified');
       return true;
     } else {
       printLog('error', 'Downloaded session is invalid');
@@ -198,6 +200,18 @@ async function downloadSessionCredentials(sessionId) {
 async function initializeSession() {
   ensureSessionDirectory();
 
+  // Clean stale key files
+  const sessionDir = path.join(__dirname, 'session');
+  if (fs.existsSync(sessionDir)) {
+    const files = fs.readdirSync(sessionDir);
+    for (const file of files) {
+      if (file.startsWith('app-state-sync-key-')) {
+        fs.unlinkSync(path.join(sessionDir, file));
+        console.log(`🧹 Removed stale key file: ${file}`);
+      }
+    }
+  }
+
   const sessionId = config.sessionId;
   if (!sessionId) {
     printLog('info', 'No SESSION_ID provided. Will use local session if exists.');
@@ -206,7 +220,7 @@ async function initializeSession() {
 
   // If we already have a valid session, use it
   if (hasValidSession()) {
-    printLog('success', 'Existing valid session found. Skipping download.');
+    printLog('success', '✅ Existing valid session found. Skipping download.');
     return true;
   }
 
@@ -216,7 +230,7 @@ async function initializeSession() {
   if (downloaded) {
     return true;
   } else {
-    printLog('error', 'Session download failed. Please check your SESSION_ID.');
+    printLog('error', '❌ Session download failed. Please check your SESSION_ID.');
     return false;
   }
 }
@@ -465,7 +479,7 @@ async function startQasimDev() {
           const botNumber = `${QasimDev.user.id.split(':')[0]}@s.whatsapp.net`;
           const ghostStatus = (ghostMode && ghostMode.enabled) ? '\n👻 Stealth Mode: ACTIVE' : '';
           await QasimDev.sendMessage(botNumber, {
-            text: `🤖 Bot Connected Successfully!\n\n⏰ Time: ${new Date().toLocaleString()}\n✅ Status: Online and Ready!${ghostStatus}\n\n✅Make sure to join below channel`,
+            text: `🤖 Bot Connected Successfully!\n\n⏰ Time: ${new Date().toLocaleString()}\n✅ Status: Online and Ready!${ghostStatus}\n\n✅ Make sure to join below channel`,
             contextInfo: {
               forwardingScore: 1,
               isForwarded: true,
@@ -527,11 +541,11 @@ async function startQasimDev() {
 async function main() {
   await compileAll();
   await commandHandler.loadCommands();
-  printLog('info', 'Starting MDINYANE V2 BOT...');
+  printLog('info', '🚀 Starting MDINYANE V2 BOT...');
 
   const sessionOk = await initializeSession();
   if (!sessionOk) {
-    printLog('error', 'Failed to initialize session. Exiting.');
+    printLog('error', '❌ Failed to initialize session. Exiting.');
     process.exit(1);
   }
 
