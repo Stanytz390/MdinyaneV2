@@ -8,15 +8,15 @@
 
 <br/>
 
-<img src="https://img.shields.io/github/stars/Stanytz390/mdinyane?style=for-the-badge&color=00ff00"/>
-<img src="https://img.shields.io/github/forks/Stanytz390/mdinyane?style=for-the-badge&color=ff0000"/>
-<img src="https://img.shields.io/github/watchers/Stanytz390/mdinyane?style=for-the-badge&color=00ccff"/>
-<img src="https://img.shields.io/github/issues/Stanytz390/mdinyane?style=for-the-badge&color=orange"/>
-<img src="https://img.shields.io/github/license/Stanytz390/mdinyane?style=for-the-badge&color=blue"/>
+<img src="https://img.shields.io/github/stars/Stanytz390/MdinyaneV2?style=for-the-badge&color=00ff00"/>
+<img src="https://img.shields.io/github/forks/Stanytz390/MdinyaneV2?style=for-the-badge&color=ff0000"/>
+<img src="https://img.shields.io/github/watchers/Stanytz390/MdinyaneV2?style=for-the-badge&color=00ccff"/>
+<img src="https://img.shields.io/github/issues/Stanytz390/MdinyaneV2?style=for-the-badge&color=orange"/>
+<img src="https://img.shields.io/github/license/Stanytz390/MdinyaneV2?style=for-the-badge&color=blue"/>
 
 <br/>
 
-<img src="https://komarev.com/ghpvc/?username=stanytz378&label=Visitors&color=00ffcc&style=for-the-badge"/>
+<img src="https://komarev.com/ghpvc/?username=Stanytz390&label=Visitors&color=00ffcc&style=for-the-badge"/>
 
 </div>
 
