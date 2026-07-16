@@ -6,13 +6,13 @@
   "stack": "container",
   "env": {
     "SESSION_ID": {
-      "description": "Your session ID (get it by running the bot locally first)",
+      "description": "Your session ID",
       "required": true,
       "value": ""
     },
     "OWNER_NUMBER": {
       "description": "Your WhatsApp number with country code (e.g. 255620490076)",
-      "required": true,
+      "required": false,
       "value": "255620490076"
     },
     "MONGO_URL": {
