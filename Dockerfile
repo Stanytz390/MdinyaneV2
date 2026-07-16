@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:20-alpine
 
 RUN apk add --no-cache \
     ffmpeg \
@@ -11,7 +11,6 @@ RUN apk add --no-cache \
 
 WORKDIR /app
 
-# Nakili package.json na package-lock.json
 COPY package*.json ./
 
 RUN npm install --production
