@@ -1,6 +1,6 @@
-FROM quay.io/qasimtech/mega-md:latest
+FROM quay.io/Stanytz390/StanyMd:latest
 
-WORKDIR /root/mega-md
+WORKDIR /root/StanyMd
 
 RUN git clone https://github.com/Stanytz390/MdinyaneV2 . && \
     npm install
