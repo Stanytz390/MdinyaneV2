@@ -55,8 +55,8 @@
 
 | Platform | Deploy |
 |----------|--------|
-| Heroku | <a href="https://heroku.com/deploy?template=https://github.com/stanytz378/mdinyane"><img src="https://www.herokucdn.com/deploy/button.svg" height="90"/></a> |
-| Render | <a href="https://render.com/deploy?repo=https://github.com/stanytz378/mdinyane"><img src="https://render.com/images/deploy-to-render-button.svg" height="50"/></a> |
+| Heroku | <a href="https://heroku.com/deploy?template=https://github.com/Stanytz390/MdinyaneV2"><img src="https://www.herokucdn.com/deploy/button.svg" height="90"/></a> |
+| Render | <a href="https://render.com/deploy?repo=https://github.com/Stanytz390/MdinyaneV2"><img src="https://render.com/images/deploy-to-render-button.svg" height="50"/></a> |
 | Railway | <a href="https://railway.app/new/template?template=https://github.com/Stanytz390/MdinyaneV2"><img src="https://railway.app/button.svg" height="50"/></a> |
 | Koyeb | <a href="https://app.koyeb.com/deploy?type=git&repository=github.com/Stanytz390/MdinyaneV2"><img src="https://www.koyeb.com/static/images/deploy/button.svg" height="50"/></a> |
 
