@@ -1,9 +1,23 @@
-FROM quay.io/Stanytz390/StanyMd:latest
+FROM node:18-alpine
 
-WORKDIR /root/StanyMd
+RUN apk add --no-cache \
+    ffmpeg \
+    imagemagick \
+    git \
+    python3 \
+    make \
+    g++ \
+    && ln -sf /usr/bin/python3 /usr/bin/python
 
-RUN git clone https://github.com/Stanytz390/MdinyaneV2 . && \
-    npm install
+WORKDIR /app
+
+# Nakili package.json na package-lock.json
+COPY package*.json ./
+
+RUN npm install --production
+
+# Nakili msimbo wote wa bot
+COPY . .
 
 EXPOSE 5000
 
