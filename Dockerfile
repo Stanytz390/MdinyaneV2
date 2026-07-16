@@ -16,7 +16,6 @@ COPY package*.json ./
 
 RUN npm install --production
 
-# Nakili msimbo wote wa bot
 COPY . .
 
 EXPOSE 5000
